@@ -17,6 +17,8 @@ wifi:
     ssid: "ESPHome Fallback Hotspot"
     password: "esphomeHotspot"
 
+web_server:
+
 ota:
   password: "1234321234543212345654321"
 
@@ -33,16 +35,12 @@ media_player:
     i2s_bclk_pin: GPIO27
     mode: mono
 
-binary_sensor:
-  - platform: gpio
-    pin:
-      number: GPIO34
-      inverted: false
-    name: button
-    on_press:
+switch:
+  - platform: template
+    name: switch_web
+    id: switch_web
+    turn_on_action:
       - media_player.volume_set: 50%
       - media_player.play_media: 'http://live-icy.gss.dr.dk:80/A/A03H.mp3'
-    on_release:
+    turn_off_action:
       - media_player.stop:
-
-    
