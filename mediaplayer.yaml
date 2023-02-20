@@ -37,7 +37,7 @@ binary_sensor:
   - platform: gpio
     pin:
       number: GPIO34
-      inverted: true
+      inverted: false
     name: button
     on_press:
       - media_player.volume_set: 50%
